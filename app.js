@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const Cdi = require('./model/Cdi');
 const Decimal = require('decimal.js')
+const PORT = process.env.PORT || 3000;
 
 
 require('dotenv/config')
@@ -65,6 +66,6 @@ app.get('/unc', async (req,res) => {
     }
 });
 
-app.listen(3000);
+app.listen(PORT);
 
 
