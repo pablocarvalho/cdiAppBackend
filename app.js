@@ -5,12 +5,20 @@ const bodyParser = require('body-parser');
 const Cdi = require('./model/Cdi');
 const Decimal = require('decimal.js')
 const PORT = process.env.PORT || 3000;
+const cors = require('cors');
 
 
 require('dotenv/config')
 
 
 app.use(bodyParser.json());
+
+app.use((req, res, next) => {	
+    res.header("Access-Control-Allow-Origin", "*");	
+    res.header("Access-Control-Allow-Methods", 'GET,PUT,POST,DELETE');
+    app.use(cors());
+    next();
+});
 
 //Routes
 app.get('/',(req,res) => {
